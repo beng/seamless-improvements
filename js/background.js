@@ -6,8 +6,8 @@ var request = function(url, queryString) {
 }
 
 Foursquare = function() {
-    this.clientSecret = "XXXXXXXXXXXXXX"
-    this.clientID = "XXXXXXXXXXXXXX"
+    this.clientSecret = ""
+    this.clientID = ""
     this.m = "foursquare"
     this.version = new Date().toJSON().slice(0, 10).replace(/[\\-]/g,'')
     this.baseURL = "https://api.foursquare.com"
@@ -39,6 +39,10 @@ Foursquare.prototype.getVenue = function(id) {
 
 $(function() {
     setTimeout(function() {
+
+        // TODO: use this for paging. ty @hswolfff
+        // angular.element(document.documentElement).injector().get('$rootScope').$on('$routeChangeSuccess', function(c) {})
+
         $("span.restaurant-name").each(function(idx, html) {
             var name = $(this).text()
             var fs = new Foursquare()
@@ -69,7 +73,8 @@ $(function() {
                         if(rating == null) {
                             rating = "N/A"
                         }
-                        $(html).append("<h4 style='color: chocolate' id='foursquare-rating'>Foursquare Rating: " + rating + "</h4>")
+                        var foursquarePageURL = "http://foursquare.com/v/" + [d.response.venue.name, d.response.venue.id].join("/")
+                        $(html).append("<h4><a style='color: chocolate' id='foursquare-rating' href='" + foursquarePageURL + "'>Foursquare Rating: " + rating + "</a></h4>")
                     })
                 }
             })
