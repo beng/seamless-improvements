@@ -1,7 +1,7 @@
 {
   "name": "Seamless Improvements",
   "version": "0",
-  "description": "Feth restaurant ratings from foursquare",
+  "description": "Fetch restaurant ratings from foursquare",
   "background": {"page": "html/background.html"},
   "manifest_version": 2,
   "browser_action": {
