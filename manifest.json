@@ -1,0 +1,16 @@
+{
+  "name": "Seamless Improvements",
+  "version": "0",
+  "description": "Feth restaurant ratings from foursquare",
+  "background": {"page": "html/background.html"},
+  "manifest_version": 2,
+  "browser_action": {
+    "name": "Manipulate DOM",
+    "icons": ["images/icon.png"],
+    "default_icon": "images/icon.png"
+  },
+  "content_scripts": [ {
+    "js": [ "js/jquery-2.0.2.min.js", "js/background.js" ],
+    "matches": [ "http://www.seamless.com/*", "https://www.seamless.com/*"]
+  }]
+}
